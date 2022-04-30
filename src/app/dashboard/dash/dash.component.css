@@ -40,6 +40,9 @@ h1{
 .card{
     background-color: #222528;
     margin-right: 15px;
+    margin-top: 0;
+    flex-wrap: wrap;
+    display: block;
 }
 
 .green{
