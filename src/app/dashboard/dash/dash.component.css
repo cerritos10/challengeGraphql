@@ -1,0 +1,57 @@
+*{
+    border: none;
+}
+
+h1{
+    color: #fff;
+}
+
+.bar-search{
+    background-color: #2d2f33;
+    color: #fff;
+    border: none;
+}
+
+.task{
+    text-align:center
+}
+
+.izquierda{
+    float: left;
+}
+
+.derecha{
+    float: right;
+}
+.centro{
+   display:inline-block
+}
+
+.topic{
+    margin-left: 0;
+}
+
+.card-color{
+    background-color: #2d2f33;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.card{
+    background-color: #222528;
+    margin-right: 15px;
+}
+
+.green{
+    color: greenyellow;
+    background-color: #222528;
+}
+
+.yellow{
+    color: yellow;
+    background-color: #222528;
+}
+
+.badge{
+    margin-right: 3px;
+}
