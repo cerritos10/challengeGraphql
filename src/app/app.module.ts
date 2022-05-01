@@ -7,6 +7,8 @@ import { DashComponent } from './dashboard/dash/dash.component';
 import { SidenavComponent } from './dashboard/sidenav/sidenav.component';
 import { ViewComponent } from './dashboard/view/view.component';
 import { AppRoutingModule } from './app-routing.module';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
