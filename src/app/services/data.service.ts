@@ -1,14 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
-import {take, tap} from 'rxjs/operators'
+import { gql } from 'apollo-angular';
 
-const QUERY = gql`
-    query{
-      users{
-        email
-      }  
-    }
-`;
 
 
 @Injectable({
@@ -16,18 +8,99 @@ const QUERY = gql`
 })
 export class DataService {
 
-  constructor(private apollo: Apollo) { }
+  constructor() { }
 
-   getPruebas(): void {
-    this.apollo.watchQuery<any>({
-      query: QUERY
-    }).valueChanges.pipe(
-      take(1),
-      tap(res => {
-        console.log(res)
-      })
-    ).subscribe();
+  QUERYIN_PROGRESS = gql`
+query{
+  tasks(input:{
+    assigneeId:"8cf8158f-16ea-4bf8-86be-767104709727",
+    status:IN_PROGRESS
+  }){
+    assignee{
+      id
+    }
+    name
+    tags
+    dueDate
+    pointEstimate
+    creator{
+      avatar
+    }
+    status
+    
   }
+  }
+`;
+
+QUERYCancelled = gql`
+query{
+  tasks(input:{
+    assigneeId:"8cf8158f-16ea-4bf8-86be-767104709727",
+    status:CANCELLED
+  }){
+    assignee{
+      id
+    }
+    name
+    tags
+    dueDate
+    pointEstimate
+    creator{
+      avatar
+    }
+    status
+    
+  }
+  }
+`;
+
+QUERYBACKLOG = gql`
+query{
+  tasks(input:{
+    assigneeId:"8cf8158f-16ea-4bf8-86be-767104709727",
+    status:BACKLOG
+  }){
+    assignee{
+      id
+    }
+    name
+    tags
+    dueDate
+    pointEstimate
+    creator{
+      avatar
+    }
+    status
+    
+  }
+  }
+`;
+
+
+
+QUERYDONE = gql`
+query{
+  tasks(input:{
+    assigneeId:"8cf8158f-16ea-4bf8-86be-767104709727",
+    status:DONE
+  }){
+    assignee{
+      id
+    }
+    name
+    tags
+    dueDate
+    pointEstimate
+    creator{
+      avatar
+    }
+    status
+    
+  }
+  }
+`;
+
+
 }
 
 

@@ -1,115 +1,201 @@
 <div class="card">
-    <div class="card-body">
-        <input class="form-control bar-search" type="search" placeholder="Search" aria-label="Search"><br>
-        <div class="card-group">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Working (3)</h5>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">In Progress (3)</h5>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Completed (3)</h5>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="card-body card-color">
-                    <div class="badge text-wrap green" style="width: 6rem;">
-                        IOS APP
-                      </div>
-                      <div class="badge text-wrap yellow" style="width: 6rem;">
-                        ANDROID
-                      </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-
-
-
+  <div class="card-body">
+    <input class="form-control bar-search" type="search" placeholder="Search" aria-label="Search"><br>
+    <div class="card-group" >
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">In Progress (3)</h5>
         </div>
+        <div class="card-body card-color" *ngFor="let tarea of tareasProgress" >
+            <div class="bar-top">
+              <label>{{tarea.name}}</label>
+              <div class="points">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="bar-second">
+              <label>{{tarea.pointEstimate}}</label>
+              <div class="date badge text-wrap" style="width: 6rem;">
+                <i class="far fa-alarm-clock"></i>
+                {{tarea.dueDate}}
+              </div>
+            </div>
+            <div class="bar-three">
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[0]">
+                {{tarea.tags[0]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[1]">
+                {{tarea.tags[1]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[2]">
+                {{tarea.tags[2]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[3]">
+                {{tarea.tags[3]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[4]">
+                {{tarea.tags[4]}}
+              </div>
+            </div>
+            <div class="bar-bottom">
+              <img src='../../../assets/user.png' class='imgRedonda' />
+            </div>
+            <div class="info">
+              <i class="info-option fas fa-paperclip"></i>
+              <i class="info-option far fa-folder-tree"><span> 5</span></i>
+              <i class="info-option far fa-comment"><span> 5</span></i>
+            </div>
+          </div>      
+      </div>
+
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Backlog (3)</h5>
+        </div>
+        <div class="card-body card-color" *ngFor="let tarea of tareasBACKLOG" >
+            <div class="bar-top">
+              <label>{{tarea.name}}</label>
+              <div class="points">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="bar-second">
+              <label>{{tarea.pointEstimate}}</label>
+              <div class="date badge text-wrap" style="width: 6rem;">
+                <i class="far fa-alarm-clock"></i>
+                {{tarea.dueDate}}
+              </div>
+            </div>
+            <div class="bar-three">
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[0]">
+                {{tarea.tags[0]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[1]">
+                {{tarea.tags[1]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[2]">
+                {{tarea.tags[2]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[3]">
+                {{tarea.tags[3]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[4]">
+                {{tarea.tags[4]}}
+              </div>
+            </div>
+            <div class="bar-bottom">
+              <img src='../../../assets/user.png' class='imgRedonda' />
+            </div>
+            <div class="info">
+              <i class="info-option fas fa-paperclip"></i>
+              <i class="info-option far fa-folder-tree"><span> 5</span></i>
+              <i class="info-option far fa-comment"><span> 5</span></i>
+            </div>
+          </div>      
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Cancelled (3)</h5>
+        </div>
+        <div class="card-body card-color" *ngFor="let tarea of tareasCANCELLED" >
+            <div class="bar-top">
+              <label>{{tarea.name}}</label>
+              <div class="points">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="bar-second">
+              <label>{{tarea.pointEstimate}}</label>
+              <div class="date badge text-wrap" style="width: 6rem;">
+                <i class="far fa-alarm-clock"></i>
+                {{tarea.dueDate}}
+              </div>
+            </div>
+            <div class="bar-three">
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[0]">
+                {{tarea.tags[0]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[1]">
+                {{tarea.tags[1]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[2]">
+                {{tarea.tags[2]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[3]">
+                {{tarea.tags[3]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[4]">
+                {{tarea.tags[4]}}
+              </div>
+            </div>
+            <div class="bar-bottom">
+              <img src='../../../assets/user.png' class='imgRedonda' />
+            </div>
+            <div class="info">
+              <i class="info-option fas fa-paperclip"></i>
+              <i class="info-option far fa-folder-tree"><span> 5</span></i>
+              <i class="info-option far fa-comment"><span> 5</span></i>
+            </div>
+          </div>      
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Done (3)</h5>
+        </div>
+        <div class="card-body card-color" *ngFor="let tarea of tareasDONE" >
+            <div class="bar-top">
+              <label>{{tarea.name}}</label>
+              <div class="points">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+            </div>
+            <div class="bar-second">
+              <label>{{tarea.pointEstimate}}</label>
+              <div class="date badge text-wrap" style="width: 6rem;">
+                <i class="far fa-alarm-clock"></i>
+                {{tarea.dueDate}}
+              </div>
+            </div>
+            <div class="bar-three">
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[0]">
+                {{tarea.tags[0]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[1]">
+                {{tarea.tags[1]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[2]">
+                {{tarea.tags[2]}}
+              </div>
+              <div class="badge text-wrap yellow" style="width: 6rem;" *ngIf="tarea.tags[3]">
+                {{tarea.tags[3]}}
+              </div>
+              <div class="badge text-wrap green" style="width: 6rem;" *ngIf="tarea.tags[4]">
+                {{tarea.tags[4]}}
+              </div>
+            </div>
+            <div class="bar-bottom">
+              <img src='../../../assets/user.png' class='imgRedonda' />
+            </div>
+            <div class="info">
+              <i class="info-option fas fa-paperclip"></i>
+              <i class="info-option far fa-folder-tree"><span> 5</span></i>
+              <i class="info-option far fa-comment"><span> 5</span></i>
+            </div>
+          </div>      
+      </div>
+
+
+
+
+
+
     </div>
+  </div>
 </div>
